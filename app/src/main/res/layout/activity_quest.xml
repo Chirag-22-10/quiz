@@ -1,9 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".Quest"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillViewport="true">
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/question"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:textColor="#363A43"
+            android:text="What is java">
+
+        </TextView>
+
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center_vertical"
+         android:layout_marginTop="10dp"
+         android:orientation="horizontal">
+
+         <ProgressBar
+             android:id="@+id/progressb"
+             android:layout_width="0dp"
+             style="?android:attr/progressBarStyleHorizontal"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:max="10"
+             android:indeterminate="false"
+             android:minHeight="50dp"
+             android:progress="0">
+
+         </ProgressBar>
+         <TextView
+             android:id="@+id/tprogress"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:gravity="center"
+             android:padding="15dp"
+             android:textSize="14sp"
+             android:text="0/9">
+
+         </TextView>
+
+     </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_option1"
+            android:gravity="center"
+            android:padding="15dp"
+            android:textColor="#748089"
+            android:textSize="18sp"
+            android:background="@drawable/default_option_border_bg"
+            android:layout_marginTop="20dp">
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_option2"
+            android:gravity="center"
+            android:padding="15dp"
+            android:textColor="#748089"
+            android:textSize="18sp"
+            android:background="@drawable/default_option_border_bg"
+            android:layout_marginTop="20dp"
+            >
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_option3"
+            android:gravity="center"
+            android:padding="15dp"
+            android:textColor="#748089"
+            android:textSize="18sp"
+            android:background="@drawable/default_option_border_bg"
+            android:layout_marginTop="20dp"
+            >
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_option4"
+            android:gravity="center"
+            android:padding="15dp"
+            android:textColor="#748089"
+            android:textSize="18sp"
+            android:background="@drawable/default_option_border_bg"
+            android:layout_marginTop="20dp"
+            >
+
+        </TextView>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="Submit"
+            android:id="@+id/Submit"
+            android:background="@color/design_default_color_primary"
+            android:textSize="18sp"
+            android:textStyle="bold">
+
+        </Button>
+    </LinearLayout>
+
+</ScrollView>
