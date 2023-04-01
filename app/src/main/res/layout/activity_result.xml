@@ -1,9 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".result">
+<LinearLayout
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".result"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@drawable/bgquizhome"
+    android:padding="20dp"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Result"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:gravity="center"
+        >
+    </TextView>
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:contentDescription="image"
+        android:src="@drawable/trophy">
+
+
+    </ImageView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Hey, Congratulations !"
+        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:textStyle="bold">
+    </TextView>
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Username"
+        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:textStyle="bold">
+    </TextView>
+
+    <TextView
+        android:id="@+id/total_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Your score is 9 out of 10"
+        android:textSize="25dp"
+        android:textColor="@android:color/secondary_text_dark"
+        android:textStyle="bold">
+    </TextView>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_finish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Finish"
+        android:textColor="@color/design_default_color_primary"
+        android:textSize="18sp"
+        android:textStyle="bold">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+
+
+
+</LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.quiz
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +18,8 @@ class Quest : AppCompatActivity(), View.OnClickListener {
     private var mcurrentPoot: Int = 1
     private var mQuestionList: ArrayList<Questc>? = null
     private var mSelectedopt: Int = 0
+    private var mUserName : String ? = null
+    private var mCorrectAns : Int = 0
 
     private var progressBar: ProgressBar? = null
     private var txtProgressBar: TextView? = null
@@ -37,6 +40,9 @@ class Quest : AppCompatActivity(), View.OnClickListener {
         toption2 = findViewById(R.id.tv_option2)
         toption3 = findViewById(R.id.tv_option3)
         toption4 = findViewById(R.id.tv_option4)
+
+        mUserName = intent.getStringExtra(Const.USER_NAME)
+
 
 
         txtProgressBar = findViewById(R.id.tprogress)
@@ -103,7 +109,7 @@ class Quest : AppCompatActivity(), View.OnClickListener {
 
     private fun selectedOptionView(tv: TextView, selectedOptionNum: Int) {
 
-        defaultOptionsView()
+//        defaultOptionsView()
 
         mSelectedopt = selectedOptionNum
 
@@ -156,7 +162,12 @@ class Quest : AppCompatActivity(), View.OnClickListener {
                             setQuestions()
                         }
                         else -> {
-                            Toast.makeText(this, "You made it till the end", Toast.LENGTH_LONG).show()
+                            val intent = Intent(this, result::class.java)
+                            intent.putExtra(Const.USER_NAME, mUserName)
+                            intent.putExtra(Const.CORRECT_ANSWER, mCorrectAns)
+                            intent.putExtra(Const.TOTAL_QUESTION, mQuestionList?.size)
+                            startActivity(intent)
+                            finish()
                         }
                     }
                 }else{
@@ -164,12 +175,16 @@ class Quest : AppCompatActivity(), View.OnClickListener {
                     if(question!!.correctAnswer != mSelectedopt){
                         answerView(mSelectedopt, R.drawable.wrong_option_border_bg)
                     }
+                    else{
+                        mCorrectAns++
+                    }
                     answerView(question.correctAnswer, R.drawable.correct_option_border_bg)
+
 
                     if(mcurrentPoot == mQuestionList!!.size){
                         button?.text = "Finish"
                     }else{
-                        button?.text="Go To Next Question"
+                       setQuestions()
                     }
                     mSelectedopt = 0
                 }
