@@ -20,9 +20,10 @@
             android:id="@+id/question"
             android:layout_margin="10dp"
             android:gravity="center"
-            android:textSize="20dp"
-            android:textColor="#363A43"
-            android:text="What is java">
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:text="What is java"
+            >
 
         </TextView>
 
@@ -35,7 +36,7 @@
          android:orientation="horizontal">
 
          <ProgressBar
-             android:id="@+id/progressb"
+             android:id="@+id/tv_progress_text"
              android:layout_width="0dp"
              style="?android:attr/progressBarStyleHorizontal"
              android:layout_height="wrap_content"
@@ -53,7 +54,8 @@
              android:gravity="center"
              android:padding="15dp"
              android:textSize="14sp"
-             android:text="0/9">
+             android:text="0/10"
+             >
 
          </TextView>
 
@@ -67,7 +69,8 @@
             android:textColor="#748089"
             android:textSize="18sp"
             android:background="@drawable/default_option_border_bg"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:text="option1">
 
         </TextView>
         <TextView
@@ -80,6 +83,7 @@
             android:textSize="18sp"
             android:background="@drawable/default_option_border_bg"
             android:layout_marginTop="20dp"
+            android:text="option2"
             >
 
         </TextView>
@@ -93,6 +97,7 @@
             android:textSize="18sp"
             android:background="@drawable/default_option_border_bg"
             android:layout_marginTop="20dp"
+            android:text="option3"
             >
 
         </TextView>
@@ -106,6 +111,7 @@
             android:textSize="18sp"
             android:background="@drawable/default_option_border_bg"
             android:layout_marginTop="20dp"
+            android:text="option4"
             >
 
         </TextView>

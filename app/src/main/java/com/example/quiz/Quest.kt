@@ -5,12 +5,10 @@ import android.graphics.Color
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 
 class Quest : AppCompatActivity(), View.OnClickListener {
@@ -18,8 +16,8 @@ class Quest : AppCompatActivity(), View.OnClickListener {
     private var mcurrentPoot: Int = 1
     private var mQuestionList: ArrayList<Questc>? = null
     private var mSelectedopt: Int = 0
-    private var mUserName : String ? = null
-    private var mCorrectAns : Int = 0
+    private var mUserName: String? = null
+    private var mCorrectAns: Int = 0
 
     private var progressBar: ProgressBar? = null
     private var txtProgressBar: TextView? = null
@@ -34,17 +32,13 @@ class Quest : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quest)
 
-        progressBar = findViewById(R.id.progressb)
+        progressBar = findViewById(R.id.tv_progress_text)
         tvquestion = findViewById(R.id.question)
         toption1 = findViewById(R.id.tv_option1)
         toption2 = findViewById(R.id.tv_option2)
         toption3 = findViewById(R.id.tv_option3)
         toption4 = findViewById(R.id.tv_option4)
-
         mUserName = intent.getStringExtra(Const.USER_NAME)
-
-
-
         txtProgressBar = findViewById(R.id.tprogress)
         button = findViewById(R.id.Submit)
 
@@ -62,7 +56,7 @@ class Quest : AppCompatActivity(), View.OnClickListener {
         toption2?.setOnClickListener(this)
         toption3?.setOnClickListener(this)
         toption4?.setOnClickListener(this)
-        button?.setOnClickListener (this)
+        button?.setOnClickListener(this)
 
 
     }
@@ -109,7 +103,7 @@ class Quest : AppCompatActivity(), View.OnClickListener {
 
     private fun selectedOptionView(tv: TextView, selectedOptionNum: Int) {
 
-//        defaultOptionsView()
+      defaultOptionsView()
 
         mSelectedopt = selectedOptionNum
 
@@ -184,27 +178,27 @@ class Quest : AppCompatActivity(), View.OnClickListener {
                     if(mcurrentPoot == mQuestionList!!.size){
                         button?.text = "Finish"
                     }else{
-                       setQuestions()
+                        button?.text = "Next Question"
                     }
                     mSelectedopt = 0
                 }
             }
         }
     }
-private fun answerView(answer: Int, drawableView: Int){
-    when(answer){
-        1->{
-            toption1?.background = ContextCompat.getDrawable(this, drawableView)
-        }
-        2->{
-            toption2?.background = ContextCompat.getDrawable(this, drawableView)
-        }
-        3->{
-            toption3?.background = ContextCompat.getDrawable(this, drawableView)
-        }
-        4->{
-            toption4?.background = ContextCompat.getDrawable(this, drawableView)
+    private fun answerView(answer: Int, drawableView: Int){
+        when(answer){
+            1->{
+                toption1?.background = ContextCompat.getDrawable(this, drawableView)
+            }
+            2->{
+                toption2?.background = ContextCompat.getDrawable(this, drawableView)
+            }
+            3->{
+                toption3?.background = ContextCompat.getDrawable(this, drawableView)
+            }
+            4->{
+                toption4?.background = ContextCompat.getDrawable(this, drawableView)
+            }
         }
     }
-}
 }
