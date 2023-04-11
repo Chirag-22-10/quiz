@@ -1,4 +1,4 @@
-package com.example.quiz
+package com.example.quiz.models
 
 data class Questc(
     val id: Int,

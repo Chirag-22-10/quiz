@@ -1,4 +1,4 @@
-package com.example.quiz
+package com.example.quiz.activities
 
 import android.content.Intent
 import android.graphics.Color
@@ -10,6 +10,9 @@ import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import com.example.quiz.Const
+import com.example.quiz.models.Questc
+import com.example.quiz.R
 
 class Quest : AppCompatActivity(), View.OnClickListener {
 

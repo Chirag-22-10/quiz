@@ -4,7 +4,7 @@
 android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".result"
+    tools:context=".activities.result"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:background="@drawable/bgquizhome"

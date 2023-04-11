@@ -1,4 +1,4 @@
-package com.example.quiz
+package com.example.quiz.activities
 
 
 import android.os.Bundle
@@ -6,6 +6,8 @@ import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.example.quiz.firebase.BaseActivity
+import com.example.quiz.R
 
 class questSet : BaseActivity() {
 

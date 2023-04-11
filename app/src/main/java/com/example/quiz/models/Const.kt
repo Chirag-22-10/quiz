@@ -1,5 +1,7 @@
 package com.example.quiz
 
+import com.example.quiz.models.Questc
+
 object Const {
 
     const val USER_NAME : String = "user_name"
@@ -59,4 +61,8 @@ object Const {
         questionList.add(que10)
         return questionList
     }
+}
+object Constants{
+
+    const val USERS : String = "users"
 }

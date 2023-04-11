@@ -1,9 +1,11 @@
-package com.example.quiz
+package com.example.quiz.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.example.quiz.Const
+import com.example.quiz.R
 
 class result : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
