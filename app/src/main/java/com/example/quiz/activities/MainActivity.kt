@@ -13,9 +13,10 @@ import com.example.quiz.firebase.BaseActivity
 import com.example.quiz.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+//import com.google.firebase.database.DatabaseReference
+//import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -23,7 +24,7 @@ class MainActivity : BaseActivity() {
     private lateinit var auth: FirebaseAuth
     private var name : EditText ? = null
     private var pass : EditText ? = null
-    private val db = Firebase.firestore
+    val db = FirebaseFirestore.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -55,11 +56,11 @@ class MainActivity : BaseActivity() {
                         Log.d("Sign in", "signInWithEmail:success")
                         val user = auth.currentUser
 
-                        startActivity(Intent(this, AdminDash::class.java))
-                        finish()
+//                        startActivity(Intent(this, AdminDash::class.java))
+//                        finish()
 
                        // updateUI(user)
-                       // readData()
+                        readData()
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w("Sign in", "signInWithEmail:failure", task.exception)
@@ -89,21 +90,33 @@ class MainActivity : BaseActivity() {
 
     }
 
-//    private fun readData() {
-//        val docRef = db.collection("Users").document("mgOUwB9hI0rnnKhQkAU8")
-//        docRef.get()
-//            .addOnSuccessListener {
-//                if (it != null) {
-//                   val Role = it.data?.get("Role")?.toString()
-//                    Toast.makeText(this, "$Role", Toast.LENGTH_LONG).show()
-//
-//                } else {
-//                    Toast.makeText(this, "No data", Toast.LENGTH_LONG).show()
-//                }
-//            }
-//            .addOnFailureListener {
-//                Toast.makeText(this, "Failed", Toast.LENGTH_LONG).show()
-//            }
-//    }
+    private fun readData() {
+        val docRef = db.collection("Users").document("mgOUwB9hI0rnnKhQkAU8")
+        docRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    // Get the data as a Map
+                    val data = document.data
+                    // Get a specific field
+                    val role = document.getString("Role")
+                    // Do something with the data
+                    if(role == "Admin"){
+                        val intent = Intent(this, questSet::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                    else{
+                        val intent = Intent(this, Quest::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                } else {
+                    Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
 
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.e(TAG, "get failed with ", exception)
+            }
+    }
 }
